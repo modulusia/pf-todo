@@ -1,0 +1,55 @@
+.inria-sans-regular {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #F3F3F3;
+    color: #141618;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    width: 80%;
+    min-height: 100vh;
+    background-color: #fff;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+    display: inline-block;
+}
+
+section {
+    text-align: left;
+    margin: 2rem;
+}
+
+section + section {
+    border-top: 1px dashed #CCC;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid black;
+}
+
+.task-column {
+    width: 100%;
+}
+
+.action-column {
+    width: fit-content;
+    white-space: nowrap;
+}
