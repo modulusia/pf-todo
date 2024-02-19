@@ -13,6 +13,14 @@ function createCompleteTaskTable() {
     generateTable($result, false);
 }
 
+function completeButton($id) {
+    echo '<a class="button" href="mark-complete-action.php?id='.$id.'">✔️</a>';
+}
+
+function incompleteButton($id) {
+    echo '<a class="button" href="revert-complete-action.php?id='.$id.'">🔄️</a>';
+}
+
 function generateTable($data, $showCompleteButton) {
 ?>
             <table>
@@ -29,7 +37,7 @@ function generateTable($data, $showCompleteButton) {
 ?>
                     <tr>
                         <td class="task-column"><?php echo $row['task'] ?></td>
-                        <td class="action-column"><a class="button">✔️</a><a class="button">✏️</a><a class="button">🗑️</a></td>
+                        <td class="action-column"><?php $showCompleteButton ? completeButton($row['id']) : incompleteButton($row['id']) ?><a class="button">✏️</a><a class="button">🗑️</a></td>
                     </tr>
 <?php
         }
