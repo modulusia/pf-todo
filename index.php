@@ -70,7 +70,7 @@ function generateTable($data, $showCompleteButton) {
         <h1>To-do List</h1>
         <section>
             <h2>Ongoing Tasks</h2>
-            <a class="button">New task</a>
+            <a class="button" href="new-task.php">New task</a>
 <?php createIncompleteTaskTable() ?>
         </section>
         <section>
