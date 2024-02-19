@@ -17,14 +17,17 @@ body {
     margin: 0px;
 }
 
-a.button {
+a.button,
+input[type="submit"] {
     background-color: #EFEFEF;
     padding: 0.2em 1em;
     border: 1px solid #BBB;
     border-radius: 0.2em;
+    font-family: inherit;
 }
 
-a.button:hover {
+a.button:hover,
+input[type="submit"]:hover {
     background-color: #CFCFCF;
 }
 
@@ -70,4 +73,21 @@ th {
 td.no-data {
     color: #888;
     text-align: center;
+}
+
+fieldset {
+    padding: 0.5em 1em;
+    background-color: #FCFCFC;
+    border-radius: 0.2em;
+    border: 1px solid #CCC;
+}
+
+textarea {
+    width: -webkit-fill-available;
+    margin: 1em 0;
+    border: 1px solid #CCC;
+    resize: vertical;
+    font-family: inherit;
+    box-sizing: border-box;
+    padding: 0.5em;
 }
