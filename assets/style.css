@@ -17,6 +17,17 @@ body {
     margin: 0px;
 }
 
+a.button {
+    background-color: #EFEFEF;
+    padding: 0.2em 1em;
+    border: 1px solid #BBB;
+    border-radius: 0.2em;
+}
+
+a.button:hover {
+    background-color: #CFCFCF;
+}
+
 main {
     width: 80%;
     min-height: 100vh;

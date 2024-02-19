@@ -33,7 +33,7 @@ function generateTable($data, $showCompleteButton) {
 ?>
                     <tr>
                         <td class="task-column"><?php echo $row['task'] ?></td>
-                        <td class="action-column"><button>✔️</button><button>✏️</button><button>🗑️</button></td>
+                        <td class="action-column"><a class="button">✔️</a><a class="button">✏️</a><a class="button">🗑️</a></td>
                     </tr>
 <?php
         }
@@ -66,13 +66,13 @@ function generateTable($data, $showCompleteButton) {
         <h1>To-do List</h1>
         <section>
             <h2>Ongoing Tasks</h2>
-            <button>➕ New task</button>
+            <a class="button">New task</a>
 <?php createIncompleteTaskTable() ?>
         </section>
         <section>
-        <h2>Completed Tasks</h2>
-        <button>✖️ Clear completed tasks</button>
+            <h2>Completed Tasks</h2>
 <?php createCompleteTaskTable() ?>
+            <a class="button">Clear completed tasks</a>
         </section>
     </main>
 </body>
