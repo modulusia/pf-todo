@@ -1,3 +1,55 @@
+<?php
+$mysqli = new mysqli('localhost', 'root', '', 'pf_todo');
+if($mysqli->connect_error) {
+    echo 'Tidak dapat terkoneksi ke database: '.$mysqli->connect_error;
+    die();
+}
+
+function createIncompleteTaskTable() {
+    global $mysqli;
+    $result = $mysqli->query('SELECT * FROM tasks WHERE isComplete = 0');
+    generateTable($result, true);
+}
+
+function createCompleteTaskTable() {
+    global $mysqli;
+    $result = $mysqli->query('SELECT * FROM tasks WHERE isComplete = 1');
+    generateTable($result, false);
+}
+
+function generateTable($data, $showCompleteButton) {
+?>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="task-column">Tugas</th>
+                        <th class="action-column">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+<?php
+    if ($data->num_rows > 0) {
+        while($row = $data->fetch_assoc()) {
+?>
+                    <tr>
+                        <td class="task-column"><?php echo $row['task'] ?></td>
+                        <td class="action-column"><button>✔️</button><button>✏️</button><button>🗑️</button></td>
+                    </tr>
+<?php
+        }
+    } else {
+?>
+                    <tr>
+                        <td colspan="2" class="no-data">- Tidak ada data -</td>
+                    </tr>
+<?php
+    }
+?>
+                </tbody>
+            </table>
+<?php
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,38 +67,12 @@
         <section>
             <h2>Ongoing Tasks</h2>
             <button>➕ New task</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="task-column">Task</th>
-                        <th class="action-column">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="task-column">Example task</td>
-                        <td class="action-column"><button>✔️</button><button>✏️</button><button>🗑️</button></td>
-                    </tr>
-                </tbody>
-            </table>
+<?php createIncompleteTaskTable() ?>
         </section>
         <section>
         <h2>Completed Tasks</h2>
         <button>✖️ Clear completed tasks</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Task</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Example task</td>
-                        <td><button>🔁</button><button>✏️</button><button>🗑️</button></td>
-                    </tr>
-                </tbody>
-            </table>
+<?php createCompleteTaskTable() ?>
         </section>
     </main>
 </body>
