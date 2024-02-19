@@ -37,7 +37,7 @@ function generateTable($data, $showCompleteButton) {
 ?>
                     <tr>
                         <td class="task-column"><?php echo $row['task'] ?></td>
-                        <td class="action-column"><?php $showCompleteButton ? completeButton($row['id']) : incompleteButton($row['id']) ?><a class="button">✏️</a><a class="button">🗑️</a></td>
+                        <td class="action-column"><?php $showCompleteButton ? completeButton($row['id']) : incompleteButton($row['id']) ?><a class="button" href="edit-task.php?id=<?php echo $row['id'] ?>">✏️</a><a class="button">🗑️</a></td>
                     </tr>
 <?php
         }
