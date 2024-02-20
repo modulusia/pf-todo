@@ -32,6 +32,7 @@ $stmt->close();
             <form action="edit-task-action.php" method="post">
                 <fieldset>
                     <legend>Ubah Tugas</legend>
+                    <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                     <label for="original-task">Tugas saat ini:</label>
                     <br />
                     <textarea id="original-task" name="original-task" rows="4" disabled><?php echo $row['task'] ?></textarea>
