@@ -80,13 +80,18 @@ function generateTable($data, $showCompleteButton) {
         <section>
             <h2>Completed Tasks</h2>
 <?php createCompleteTaskTable() ?>
-            <a class="button">Clear completed tasks</a>
+            <a class="button" onclick="confirmDeleteCompleteTasks()">Clear completed tasks</a>
         </section>
     </main>
     <script>
         function confirmDeleteTask(taskId) {
             if (confirm("Hapus tugas ini?")) {
                 window.location.href = `delete-task-action.php?id=${taskId}`;
+            }
+        };
+        function confirmDeleteCompleteTasks() {
+            if (confirm("Hapus SEMUA tugas selesai?")) {
+                window.location.href = `delete-all-completed-action.php`;
             }
         };
     </script>
