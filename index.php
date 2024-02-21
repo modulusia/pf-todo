@@ -21,6 +21,10 @@ function incompleteButton($id) {
     echo '<a class="button" href="revert-complete-action.php?id='.$id.'">🔄️</a>';
 }
 
+function deleteTaskButton($id) {
+    echo '<a class="button" onclick="confirmDeleteTask('.$id.')">🗑️</a>';
+}
+
 function generateTable($data, $showCompleteButton) {
 ?>
             <table>
@@ -37,7 +41,7 @@ function generateTable($data, $showCompleteButton) {
 ?>
                     <tr>
                         <td class="task-column"><?php echo $row['task'] ?></td>
-                        <td class="action-column"><?php $showCompleteButton ? completeButton($row['id']) : incompleteButton($row['id']) ?><a class="button" href="edit-task.php?id=<?php echo $row['id'] ?>">✏️</a><a class="button">🗑️</a></td>
+                        <td class="action-column"><?php $showCompleteButton ? completeButton($row['id']) : incompleteButton($row['id']) ?><a class="button" href="edit-task.php?id=<?php echo $row['id'] ?>">✏️</a><?php deleteTaskButton($row['id']) ?></td>
                     </tr>
 <?php
         }
@@ -79,5 +83,12 @@ function generateTable($data, $showCompleteButton) {
             <a class="button">Clear completed tasks</a>
         </section>
     </main>
+    <script>
+        function confirmDeleteTask(taskId) {
+            if (confirm("Hapus tugas ini?")) {
+                window.location.href = `delete-task-action.php?id=${taskId}`;
+            }
+        };
+    </script>
 </body>
 </html>
