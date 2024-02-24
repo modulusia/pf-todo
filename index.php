@@ -71,16 +71,16 @@ function generateTable($data, $showCompleteButton) {
 </head>
 <body class="inria-sans-regular">
     <main>
-        <h1>To-do List</h1>
+        <h1>Daftar Tugas</h1>
         <section>
-            <h2>Ongoing Tasks</h2>
-            <a class="button" href="new-task.php">New task</a>
+            <h2>Tugas</h2>
+            <a class="button" href="new-task.php">Tugas baru</a>
 <?php createIncompleteTaskTable() ?>
         </section>
         <section>
-            <h2>Completed Tasks</h2>
+            <h2>Tugas Selesai</h2>
 <?php createCompleteTaskTable() ?>
-            <a class="button" onclick="confirmDeleteCompleteTasks()">Clear completed tasks</a>
+            <a class="button" onclick="confirmDeleteCompleteTasks()">Hapus semua tugas selesai</a>
         </section>
     </main>
     <script>
